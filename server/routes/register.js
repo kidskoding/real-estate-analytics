@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const db = require('../db');
+const db = require('../login-db');
 
 router.get('/', (req, res) => {
     res.send('Registration Route');

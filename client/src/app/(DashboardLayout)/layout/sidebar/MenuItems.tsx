@@ -1,3 +1,4 @@
+import { AutoGraph } from "@mui/icons-material";
 import {
   IconAperture,
   IconCopy,
@@ -19,6 +20,12 @@ const Menuitems = [
     title: "Dashboard",
     icon: IconLayoutDashboard,
     href: "/",
+  },
+  {
+    id: uniqueId(),
+    title: "Real Estate Data Analytics",
+    icon: AutoGraph,
+    href: "/real-estate",
   },
   {
     navlabel: true,
