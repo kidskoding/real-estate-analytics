@@ -14,10 +14,6 @@ app.use(bodyParser.json());
 app.use('/register', registerRoute);
 app.use('/login', loginRoute);
 
-app.get('/', async (req, res) => [
-    res.send('Hello ExpressJS!')
-]);
-
 app.listen(PORT, () => {
     console.log('Server is running on port', PORT);
 });

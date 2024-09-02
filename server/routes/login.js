@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
-const db = require('../postgresdb');
+const db = require('../db');
 
 router.get('/', (req, res) => {
     res.send('Login Route');
