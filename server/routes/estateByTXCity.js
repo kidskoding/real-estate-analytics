@@ -5,12 +5,12 @@ const db = require('../tx-estate-db');
 router.get('/', async (req, res) => {
     try {
         const query = `
-            SELECT city, COUNT(*) as count 
-            FROM texas_real_estate 
-            WHERE st = 'TX' 
-            AND city IS NOT NULL 
-            AND city IN ('TOMBALL', 'SPRING', 'KATY', 'FRISCO', 'IRVING', 'PLANO')
-            GROUP BY city;
+            SELECT city, COUNT(*) as count
+            FROM texas_real_estate
+            WHERE city IS NOT NULL
+            GROUP BY city
+            ORDER BY count DESC
+            LIMIT 20;
         `;
         
         const { rows } = await db.query(query);

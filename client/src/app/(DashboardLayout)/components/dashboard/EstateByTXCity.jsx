@@ -34,14 +34,21 @@ export default function EstateByTXCity() {
             chartRef.current.chart.destroy();
         }
         const context = chartRef.current.getContext("2d");
-
-        const cities = chartData.rows.map(row => row.city);
+        
+        const cities = chartData.rows.map(row => capitalizeFirstLetterOfEachWord(row.city));
         const estateCounts = chartData.rows.map(row => row.count);
+
+        function capitalizeFirstLetterOfEachWord(str) {
+            return str
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+                .join(' ');
+        }
 
         const newChart = new Chart(context, {
             type: "bar",
             data: {
-                label: "Real Estate in Texas",
+                label: "Real Estate",
                 labels: cities,
                 datasets: [{
                     label: "Real Estate",
@@ -56,7 +63,7 @@ export default function EstateByTXCity() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'Real Estate in Texas',
+                        text: 'Real Estate',
                         font: {
                             size: 18
                         },
