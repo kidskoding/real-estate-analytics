@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../tx-estate-db');
+const db = require('../galveston-real-estate-db');
 
 router.get('/', async (req, res) => {
     try {
         const query = `
             SELECT city, COUNT(*) as count
-            FROM texas_real_estate
+            FROM galveston_real_estate
             WHERE city IS NOT NULL
             GROUP BY city
             ORDER BY count DESC

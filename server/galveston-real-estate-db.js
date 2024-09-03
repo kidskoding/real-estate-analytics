@@ -1,14 +1,14 @@
 const { Client } = require('pg');
 require('dotenv').config();
 
-const txEstateDB = new Client({
+const galvestonRealEstateDB = new Client({
     host: 'localhost',
     user: 'postgres',
     password: process.env.PG_DB_PASSWORD,
     database: 'anirudh'
 });
 
-txEstateDB.connect(err => {
+galvestonRealEstateDB.connect(err => {
     if(err) {
         console.error('PostgreSQL connection error to texas real estate database:', err.stack);
     }
@@ -17,4 +17,4 @@ txEstateDB.connect(err => {
     }
 });
 
-module.exports = txEstateDB;
+module.exports = galvestonRealEstateDB;
