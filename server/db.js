@@ -1,14 +1,9 @@
 const { Client } = require('pg');
 require('dotenv').config();
 
-const loginDb = new Client({
-    host: 'localhost',
-    user: 'postgres',
-    password: process.env.PG_DB_PASSWORD,
-    database: 'login-system'
-});
+const db = new Client(process.env.DB_URL);
 
-loginDb.connect(err => {
+db.connect(err => {
     if(err) {
         console.error('PostgreSQL connection error to login database:', err.stack);
     } else {
@@ -16,4 +11,4 @@ loginDb.connect(err => {
     }
 });
 
-module.exports = loginDb;
+module.exports = db;
